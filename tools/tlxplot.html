@@ -1,0 +1,68 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Translocation Plot</title>
+</head>
+
+<body>
+  <h1>Translocation Plot</h1>
+  <form action="../cgi-bin/tlxplot.cgi" method="POST" enctype="multipart/form-data">
+    TLX File: <input type="file" name="tlxfile"><br>
+
+    assembly: <select name="assembly">
+      <option value="mm9" selected>mm9</option>
+      <option value="hg19">hg19</option>
+    </select><br>
+
+    breaksite chromosome: <input type="text" name="brkchr"/><br>
+    breaksite coordinate: <input type="number" name="brksite" min="1"/><br>
+    breaksite strand: <select name="brkstrand">
+      <option value="1">+</option>
+      <option value="-1">-</option>
+    </select><br>
+
+    strands to plot: <select name="strand">
+      <option value="0" selected>both</option>
+      <option value="1">plus</option>
+      <option value="-1">minus</option>
+      <option value="2">combined</option>
+    </select><br>
+
+    bin size: <select name="binsize">
+      <option value="1500000">1.5 Mb</option>
+      <option value="2000000">2 Mb</option>
+      <option value="2500000" selected>2.5 Mb</option>
+      <option value="3000000">3 Mb</option>
+      <option value="5000000">5 Mb</option>
+    </select><br>
+
+    chromosome: <input type="text" name="chr"/><br>
+
+    start: <input type="number" name="start" min="1"/> end: <input type="number" name="end" min="1"/><br>
+
+    mid: <input type="number" name="mid" min="1"/> window: <input type="number" name="window" min="100"/><br>
+
+    number of bins: <input type="number" name="binnum" min="10" max="500"/><br>
+
+    plot type: <select name="plottype">
+      <option value="dot" selected>dot</option>
+      <option value="linear">linear</option>
+      <option value="log">log</option>
+    </select><br>
+
+    plot shape: <select name="plotshape">
+      <option value="arrow" selected>arrow</option>
+      <option value="triangle">triangle</option>
+      <option value="diamond">diamond</option>
+    </select><br>
+
+    y max: <input type="number" name="ymax" min="1"/></br>
+
+    show Y chromosome: <input type="checkbox" name="showY" value="showY"/><br>
+    show M chromosome: <input type="checkbox" name="showM" value="showM"/><br>
+
+    features file: <input type="file" name="featurefile"/><br>
+
+    <input type="submit" name="Submit" value="Submit"/><br>
+  </form>
+</body>
