@@ -58,8 +58,9 @@ my $featurefile = cgiUpload($q,'featurefile',$UPLOAD);
 
 my ($path,$name,$ext) = parseFilename($tlxfile);
 my $pdffile = "$RESULT/$name.pdf";
+my $binfile = "$RESULT/${name}_bins.txt";
 
-my $syscmd = "/Users/robin/TranslocPipeline/R/TranslocPlot.R $tlxfile $pdffile assembly=$assembly strand=$strand";
+my $syscmd = "/Users/robin/TranslocPipeline/R/TranslocPlot.R $tlxfile $pdffile binfile=$binfile assembly=$assembly strand=$strand";
 
 if ($brkchr && $brksite) {
   $brkchr = lc($brkchr);
