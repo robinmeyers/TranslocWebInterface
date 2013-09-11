@@ -69,14 +69,14 @@ if ($brkchr && $brksite) {
   $syscmd .= " brkstrand=$brkstrand" if $brkstrand;
 }
 
-if ($chr && (($start && $end) || ($mid && $window))) {
+if ($chr) {
   $chr = lc($chr);
   $chr = "chr$chr" unless $chr =~ /^chr/;
 
   $syscmd .= " chr=$chr";
   if ($mid && $window) {
     $syscmd .= " rmid=$mid rwindow=$window";
-  } else {
+  } elsif ($start && $end) {
     $syscmd .= " rstart=$start rend=$end";
   }
 
