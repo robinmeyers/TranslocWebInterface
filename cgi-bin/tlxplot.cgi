@@ -90,7 +90,7 @@ if ($chr) {
 
   if ($plottype eq "dot") {
     if ($strand == 2) {
-      $syscmd .= " plotshape=diamond";
+      $syscmd .= " plotshape=octogon";
     } else {
       $syscmd .= " plotshape=$plotshape";
     }
@@ -107,7 +107,7 @@ if ($chr) {
 
   $syscmd .= " plottype=dot";
   if ($strand == 2) {
-    $syscmd .= " plotshape=diamond";
+    $syscmd .= " plotshape=octogon";
   } else {
     $syscmd .= " plotshape=$plotshape";
   }
