@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MACS2 - Peak Caller</title>
+</head>
+
+<body>
+  <h1>MACS2 - Peak Caller</h1>
+
+  <p>You can find MACS2 documentation <a href="https://github.com/taoliu/MACS/">here</a></p>
+
+  <form action="../cgi-bin/macs2.cgi" method="POST" enctype="multipart/form-data">
+    TLX File: <input type="file" name="tlxfile"><br>
+
+    genome: <select name="genome">
+      <option value="mm" selected>mouse</option>
+      <option value="hs">human</option>
+    </select><br>
+
+    extsize: <input type="number" value="500" name="extsize" min="1" max="10000"/><br>
+
+    largelocal: <input type="number" value="10000000" name="largelocal" min="100" max="100000000"><br>
+
+    q-value (10^-n): <input type="number" value="3" name="qvalue" min="1" max="1000"><br>
+
+    <input type="submit" name="Submit" value="Submit"/><br>
+  </form>
+
+<p><a href="../results/">Results Folder</a></p>
+
+</body>

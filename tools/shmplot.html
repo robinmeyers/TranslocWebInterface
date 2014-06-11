@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SHM Plotter</title>
+</head>
+
+<body>
+  <h1>SHM Plotter</h1>
+
+
+  <form action="../cgi-bin/shmplot.cgi" method="POST" enctype="multipart/form-data">
+    <p>The Data File should contain a header row with "Pos","Base","Y", and (optionally) "Err"</p>
+    Data File: <input type="file" name="datafile"><br>
+
+    <p>Set Start and End to 0 to use the entire data set</p>
+    Start: <input type="number" value="0" name="tstart"/><br>
+    End: <input type="number" value="0" name="tend"/><br>
+
+    <p>Set Y-Max to 0 to use the default Y-axis scale</p>
+    Y-Max: <input type="number" value="0" step="any" name="ymax"/><br>
+
+    <p>Number of rows in the figure</p>
+    Plot Rows: <input type="number" value="4" name="plotrows" min="1" max="6"/><br>
+
+    <p>Height of figure in inches (width is set to 11")</p>
+    Figure Height: <input type="number" value="8" name="figureheight" min="1" max="20" step="any"/><br>
+
+    Show Sequence <input type="checkbox" name="showsequence" checked><br>
+
+    <input type="submit" name="Submit" value="Submit"/><br>
+  </form>
+
+<p><a href="../results/">Results Folder</a></p>
+
+</body>

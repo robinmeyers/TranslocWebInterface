@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SHM Profile</title>
+</head>
+
+<body>
+  <h1>SHM Profile</h1>
+
+
+  <form action="../cgi-bin/shmprofile.cgi" method="POST" enctype="multipart/form-data">
+
+    <p>The output file will be named *_profile.txt</p>
+    Profile Name: <input type="text" name="output"><br>
+
+    <p>The Clone File must contain "Clone","Coords" in header</p>
+    Clone File: <input type="file" name="clonefile"><br>
+
+    <p>The Mutation File has no header</p>
+    Mutation File: <input type="file" name="mutfile"><br>
+
+    <p>The Reference Sequence must be in fasta format</p>
+    Reference Sequence: <input type="file" name="refseqfile"><br>
+
+    <p>Set Start and End to 0 to use the entire reference sequence</p>
+    TStart: <input type="number" value="0" name="tstart"/><br>
+    TEnd: <input type="number" value="0" name="tend"/><br>
+
+
+    <p>Filter Region: Set Start and End to 0 to default to TStart and Tend</p>
+    FiltStart: <input type="number" value="0" name="filtstart" min="0"/><br>
+    FiltEnd: <input type="number" value="0" name="filtend" min="0"/><br>
+
+    <p>For minimum and maximum number of substitutions, set to 0 to include all clones</p>
+    Minimum Substitutions: <input type="number" value="0" name="minsubs" min="0"/><br>
+    Maximum Substitutions: <input type="number" value="0" name="maxsubs" min="0"/><br>
+
+    Remove Duplicates <input type="checkbox" name="rmdups" checked><br>
+
+    <br>
+
+    <input type="submit" name="Submit" value="Submit"/><br>
+  </form>
+
+<p><a href="../results/">Results Folder</a></p>
+
+</body>

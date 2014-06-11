@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>UCSC Format</title>
+</head>
+
+<body>
+  <h1>UCSC Format - Convert tlx to UCSC displayable formats</h1>
+
+  <p>You can find UCSC documentation <a href="http://genome.ucsc.edu/FAQ/FAQformat.html">here</a></p>
+
+  <form action="../cgi-bin/ucscformat.cgi" method="POST" enctype="multipart/form-data">
+    TLX File: <input type="file" name="tlxfile"><br>
+
+    genome: <select name="genome">
+      <option value="mm" selected>mouse</option>
+      <option value="hs">human</option>
+    </select><br>
+    
+    <input type="submit" name="Submit" value="Submit"/><br>
+  </form>
+
+<p><a href="../results/">Results Folder</a></p>
+
+</body>

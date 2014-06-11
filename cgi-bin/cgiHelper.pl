@@ -48,7 +48,8 @@ sub cgiUpload {
             print OUTFILE $buffer;
         }
     }
-    System("perl -pi -e 's/\r/\n/g' $file");
+
+    System("/usr/local/bin/flip.universal -u $file");
 
     return $file;
 }
