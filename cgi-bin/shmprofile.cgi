@@ -55,16 +55,24 @@ my $filtstart = $q->param('filtstart');
 my $filtend = $q->param('filtend');
 my $minsubs = $q->param('minsubs');
 my $maxsubs = $q->param('maxsubs');
+my $mindels = $q->param('mindels');
+my $maxdels = $q->param('maxdels');
+my $minins = $q->param('minins');
+my $maxins = $q->param('maxins');
+
 my $rmdups = defined $q->param('rmdups') ? "T" : "F";
 
 
 
 my $shmprofile_cmd = join(" ","Rscript",
-                              "/Users/robin/SHMSanger/R/SHMProfile.R",
+                              "/Users/robin/SHMPipeline/R/SHMProfile.R",
                               "$mutfile $clonefile $refseqfile $RESULT/$output",
                               "tstart=$tstart tend=$tend",
                               "filtstart=$filtstart filtend=$filtend",
-                              "minsubs=$minsubs maxsubs=$maxsubs rmdups=$rmdups");
+                              "minsubs=$minsubs maxsubs=$maxsubs",
+                              "mindels=$mindels maxdels=$maxdels",
+                              "minins=$minins minins=$minins",
+                              "rmdups=$rmdups");
 System($shmprofile_cmd) or croak "Error: $shmprofile_cmd";
 
 print $q->p("Finished processing request.");

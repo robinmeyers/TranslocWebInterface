@@ -37,6 +37,9 @@ my $extsize = $q->param('extsize');
 my $largelocal = $q->param('largelocal');
 my $qvalueexp = $q->param('qvalue');
 my $qvalue = 10**(-$qvalueexp);
+my $broadpeaks = $q->param('broadpeaks');
+my $broadcutoffexp = $q->param('broadcutoff');
+my $broadqvalue = 10**(-$broadcutoffexp);
 
 
 my ($path,$name,$ext) = parseFilename($tlxfile);
@@ -46,7 +49,12 @@ my $bed_cmd = "/Users/robin/Scripts/tlx2BED-MACS.pl $tlxfile $bedfile $extsize";
 System($bed_cmd) or croak "Error: $bed_cmd";
 
 
-my $macs_cmd = "/usr/local/bin/macs2 callpeak -t $bedfile -f BED -g $genome --keep-dup all -n $RESULT/$name --nomodel --extsize $extsize -q $qvalue --llocal $largelocal";
+my $macs_cmd = join(" ","/usr/local/bin/macs2 callpeak",
+                        " -t $bedfile -f BED -g $genome",
+                        " --keep-dup all -n $RESULT/$name",
+                        "--nomodel --extsize $extsize",
+                        "-q $qvalue --llocal $largelocal",
+                        $broadpeaks ? "--broad --broad-cutoff $broadqvalue" : "");
 System($macs_cmd) or croak "Error: $macs_cmd";
 
 print $q->p("Finished processing request.");
