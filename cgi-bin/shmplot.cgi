@@ -37,14 +37,14 @@ my $ymax = $q->param('ymax');
 my $plotrows = $q->param('plotrows');
 my $figureheight = $q->param('figureheight');
 my $showsequence = defined $q->param('showsequence') ? "T" : "F";
-
-
+my $regex1 = $q->param('regex1');
+my $regex2 = $q->param('regex2');
 
 my ($path,$name,$ext) = parseFilename($datafile);
 
 my $shmplot_cmd = join(" ",
                         "Rscript",
-                        "/Users/robin/SHMSanger/R/SHMPlot.R",
+                        "/Users/robin/SHMPipeline/R/SHMPlot.R",
                         $datafile,
                         "$RESULT/$name.pdf",
                         "tstart=$tstart",
@@ -52,7 +52,8 @@ my $shmplot_cmd = join(" ",
                         "ymax=$ymax",
                         "plotrows=$plotrows",
                         "figureheight=$figureheight",
-                        "showsequence=$showsequence");
+                        "showsequence=$showsequence",
+                        "regex1=$regex1 regex2=$regex2");
 System($shmplot_cmd) or croak "Error: $shmplot_cmd";
 
 print $q->p("Finished processing request.");
