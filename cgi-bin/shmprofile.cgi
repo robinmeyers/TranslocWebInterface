@@ -28,10 +28,10 @@ my $output = $q->param('output');
 $output =~ s/[^$safe_chars]/_/g;
 croak "Error: please name your file" unless $output =~ /\S/;
 
-my $clonefile = cgiUpload($q,'clonefile',$UPLOAD);
+my $readfile = cgiUpload($q,'readfile',$UPLOAD);
 
-unless ($clonefile =~ /\.txt$/) {
-  unlink $clonefile;
+unless ($readfile =~ /\.txt$/) {
+  unlink $readfile;
   croak "Error: file must be saved in Tab-Delimited Text format and contain .txt suffix";
 }
 
@@ -66,7 +66,7 @@ my $rmdups = defined $q->param('rmdups') ? "T" : "F";
 
 my $shmprofile_cmd = join(" ","Rscript",
                               "/Users/robin/SHMPipeline/R/SHMProfile.R",
-                              "$mutfile $clonefile $refseqfile $RESULT/$output",
+                              "$mutfile $readfile $refseqfile $RESULT/$output",
                               "tstart=$tstart tend=$tend",
                               "filtstart=$filtstart filtend=$filtend",
                               "minsubs=$minsubs maxsubs=$maxsubs",
@@ -80,7 +80,7 @@ print $q->a({href=>"../results/"},"Download your results here.");
 
 $q->end_html();
 
-unlink $clonefile;
+unlink $readfile;
 unlink $mutfile;
 unlink $refseqfile;
 
