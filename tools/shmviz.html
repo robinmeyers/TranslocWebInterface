@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SHM Viz</title>
+</head>
+
+<body>
+  <h1>SHM Viz</h1>
+
+
+  <form action="../cgi-bin/shmviz.cgi" method="POST" enctype="multipart/form-data">
+
+    <p>The output file will be named *_viz.pdf</p>
+    Viz Name: <input type="text" name="output"><br>
+
+    <p>The Clone File must contain "Expt","Read","Coords" in header</p>
+    Clone File: <input type="file" name="clonefile"><br>
+
+    <p>The Mutation File has no header</p>
+    Mutation File: <input type="file" name="mutfile"><br>
+
+    <p>The Reference Sequence must be in fasta format</p>
+    Reference Sequence: <input type="file" name="refseqfile"><br>
+
+    <p>Set Start and End to 0 to use the entire reference sequence</p>
+    TStart: <input type="number" value="0" name="tstart"/><br>
+    TEnd: <input type="number" value="0" name="tend"/><br>
+
+    <p>Highlight up to two sequence motifs on the figure</p>
+    Regular Expression 1: <input type="text" name="regex1" value="AGCT"><br>
+    Regular Expression 2: <input type="text" name="regex2" value="[AG]G[CT][AT]"><br><br>
+
+
+    Display clones with no mutations (empty rows)? <input type="checkbox" name="blankclones"><br>
+
+    Show Substitutions <input type="checkbox" name="showsubs" checked><br>
+
+    Show Deletions <input type="checkbox" name="showdels" checked><br>
+
+    Show Insertions <input type="checkbox" name="showins"><br>
+
+
+    Show Sequence <input type="checkbox" name="showsequence" checked><br>
+
+    <p>Number of rows in the figure</p>
+    Plot Rows: <input type="number" value="4" name="plotrows" min="1" max="6"/><br>
+
+    <p>Height of figure in inches (width is set to 11")</p>
+    Figure Height: <input type="number" value="8" name="figureheight" min="1" max="20" step="any"/><br>
+
+    <br>
+
+    <input type="submit" name="Submit" value="Submit"/><br>
+  </form>
+
+<p><a href="../results/">Results Folder</a></p>
+
+</body>
