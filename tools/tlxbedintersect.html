@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TLX - BED Intersect</title>
+</head>
+
+<body>
+  <h1>TLX - BED Intersect</h1>
+
+  <form action="../cgi-bin/tlxbedintersect.cgi" method="POST" enctype="multipart/form-data">
+    TLX File: <input type="file" name="tlxfile"><br>
+
+    BED File: <input type="file" name="bedfile"><br>
+
+    Operation:<br>
+    <input type="radio" name="operation" value="extract" checked>Extract<br>
+    <input type="radio" name="operation" value="extract_complement">Extract Complement<br>
+    <input type="radio" name="operation" value="count">Count<br>
+
+    <input type="submit" name="Submit" value="Submit"/><br>
+  </form>
+
+<p><a href="../results/">Results Folder</a></p>
+
+</body>
